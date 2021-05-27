@@ -2,6 +2,7 @@ package com.bilisimio.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.bilisimio.model.Product;
 import com.bilisimio.output.ProductResponse;
@@ -24,13 +25,14 @@ public class ProductServiceImpl extends ProductBaseService implements ProductSer
 
 	@Override
 	public ProductResponse getAllProducts() {
-		return convertToResponse(productList);
+		return new ProductResponse(prepareProductList(productList));
 	}
 
 	@Override
-	public ProductResponse getProduct(String productId) {
-		// TODO Auto-generated method stub
-		return null;
+	public ProductResponse getProduct(int productId) {
+		List<Product> filteredList = productList.stream().filter(product -> product.getId() == productId)
+				.collect(Collectors.toList());
+		return new ProductResponse(prepareProductList(filteredList));
 	}
 
 }

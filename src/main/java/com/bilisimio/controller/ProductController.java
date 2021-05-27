@@ -21,7 +21,7 @@ public class ProductController {
 	}
 
 	@GetMapping(path = "api/products/{product_id}")
-	public ProductResponse getProducts(@PathParam(value = "product_id") String productId) {
+	public ProductResponse getProducts(@PathParam(value = "product_id") int productId) {
 		return productService.getProduct(productId);
 	}
 
