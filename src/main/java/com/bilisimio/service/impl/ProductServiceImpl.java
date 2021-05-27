@@ -4,8 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
 import com.bilisimio.model.Product;
 import com.bilisimio.output.ProductResponse;
+import com.bilisimio.output.ResponseBuilder;
+import com.bilisimio.output.ServiceResponse;
 import com.bilisimio.service.ProductService;
 
 public class ProductServiceImpl extends ProductBaseService implements ProductService {
@@ -24,15 +29,15 @@ public class ProductServiceImpl extends ProductBaseService implements ProductSer
 	}
 
 	@Override
-	public ProductResponse getAllProducts() {
-		return new ProductResponse(prepareProductList(productList));
+	public ResponseEntity<ServiceResponse<ProductResponse>> getAllProducts() {
+		return ResponseBuilder.success(new ProductResponse(prepareProductList(productList)), HttpStatus.OK);
 	}
 
 	@Override
-	public ProductResponse getProduct(String productId) {
+	public ResponseEntity<ServiceResponse<ProductResponse>> getProduct(String productId) {
 		List<Product> filteredList = productList.stream()
 				.filter(product -> product.getId().equals(Integer.valueOf(productId))).collect(Collectors.toList());
-		return new ProductResponse(prepareProductList(filteredList));
+		return ResponseBuilder.success(new ProductResponse(prepareProductList(filteredList)), HttpStatus.OK);
 	}
 
 }

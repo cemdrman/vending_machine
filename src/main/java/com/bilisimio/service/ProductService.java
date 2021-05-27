@@ -1,11 +1,14 @@
 package com.bilisimio.service;
 
+import org.springframework.http.ResponseEntity;
+
 import com.bilisimio.output.ProductResponse;
+import com.bilisimio.output.ServiceResponse;
 
 public interface ProductService {
 
-	ProductResponse getAllProducts();
+	ResponseEntity<ServiceResponse<ProductResponse>> getAllProducts();
 
-	ProductResponse getProduct(String productId);
+	ResponseEntity<ServiceResponse<ProductResponse>> getProduct(String productId);
 
 }
