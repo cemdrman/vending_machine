@@ -1,0 +1,8 @@
+server:
+  port: 9090
+  
+feignClient:
+  payment-service:
+     name: payment-service
+     url: http://ms-payment-service:9091
+   
