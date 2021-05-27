@@ -19,7 +19,7 @@ public class InvoiceController {
 	private InvoiceService invoiceService;
 
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ServiceResponse<InvoiceResponse>> getAllPost(
+	public ResponseEntity<ServiceResponse<InvoiceResponse>> payInvoice(
 			@RequestBody(required = true) InvoiceRequest invoiceRequest) {
 		return invoiceService.payInvoice(invoiceRequest);
 	}
