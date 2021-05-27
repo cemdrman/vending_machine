@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bilisimio.output.ProductResponse;
 import com.bilisimio.service.ProductService;
 
-@RestController()
+@RestController(value = "api/products/")
 public class ProductController {
 
 	@Autowired
 	private ProductService productService;
 
-	@GetMapping(path = "api/products")
+	@GetMapping
 	public ProductResponse getAllProducts() {
 		return productService.getAllProducts();
 	}
 
-	@GetMapping(path = "api/products/{product_id}")
+	@GetMapping(path = "{product_id}")
 	public ProductResponse getProducts(@PathParam(value = "product_id") int productId) {
 		return productService.getProduct(productId);
 	}
