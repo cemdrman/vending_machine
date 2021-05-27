@@ -38,7 +38,7 @@ public class PaymentClientImpl implements PaymentClient {
 	public PaymentResponse defaultPayInvoice(PaymentRequest request) {
 		logger.warn("[defaultPayInvoice] {} is currently unreachable. Returning default payment response.",
 				HX_CIRCUIT_NAME_PAYMENT);
-		return feign.payInvoice(request);
+		return new PaymentResponse();
 	}
 
 }
