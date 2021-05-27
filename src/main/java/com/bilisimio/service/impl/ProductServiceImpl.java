@@ -29,9 +29,9 @@ public class ProductServiceImpl extends ProductBaseService implements ProductSer
 	}
 
 	@Override
-	public ProductResponse getProduct(int productId) {
-		List<Product> filteredList = productList.stream().filter(product -> product.getId() == productId)
-				.collect(Collectors.toList());
+	public ProductResponse getProduct(String productId) {
+		List<Product> filteredList = productList.stream()
+				.filter(product -> product.getId().equals(Integer.valueOf(productId))).collect(Collectors.toList());
 		return new ProductResponse(prepareProductList(filteredList));
 	}
 

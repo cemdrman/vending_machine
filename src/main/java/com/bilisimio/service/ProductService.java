@@ -6,6 +6,6 @@ public interface ProductService {
 
 	ProductResponse getAllProducts();
 
-	ProductResponse getProduct(int productId);
+	ProductResponse getProduct(String productId);
 
 }
