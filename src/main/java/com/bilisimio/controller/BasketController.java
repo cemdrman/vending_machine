@@ -11,13 +11,13 @@ import com.bilisimio.output.BasketResponse;
 import com.bilisimio.output.ServiceResponse;
 import com.bilisimio.service.BasketService;
 
-@RestController("/api/basket")
+@RestController("/api/baskets/")
 public class BasketController {
 
 	@Autowired
 	private BasketService basketService;
 
-	@PostMapping(path = "{product_id}")
+	@PostMapping("{product_id}")
 	public ResponseEntity<ServiceResponse<BasketResponse>> getProducts(
 			@PathVariable(value = "product_id") String productId, @RequestParam(name = "count") String count) {
 		return basketService.addProduct(productId, count);

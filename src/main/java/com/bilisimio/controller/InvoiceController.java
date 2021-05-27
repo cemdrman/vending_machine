@@ -12,7 +12,7 @@ import com.bilisimio.output.InvoiceResponse;
 import com.bilisimio.output.ServiceResponse;
 import com.bilisimio.service.InvoiceService;
 
-@RestController(value = "/api/invoice")
+@RestController("/api/invoices")
 public class InvoiceController {
 
 	@Autowired
