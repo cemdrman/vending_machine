@@ -1,9 +1,12 @@
 package com.bilisimio.service;
 
-import com.bilisimio.output.ProductResponse;
+import org.springframework.http.ResponseEntity;
+
+import com.bilisimio.output.BasketResponse;
+import com.bilisimio.output.ServiceResponse;
 
 public interface BasketService {
 
-	ProductResponse addProduct(String productId, String count);
+	ResponseEntity<ServiceResponse<BasketResponse>> addProduct(String productId, String count);
 
 }
