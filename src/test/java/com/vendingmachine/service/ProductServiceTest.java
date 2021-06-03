@@ -1,4 +1,4 @@
-package com.bilisimio.service;
+package com.vendingmachine.service;
 
 import static org.junit.Assert.assertEquals;
 
