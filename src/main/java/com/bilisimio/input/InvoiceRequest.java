@@ -1,5 +1,7 @@
 package com.bilisimio.input;
 
+import java.time.LocalDate;
+
 import com.bilisimio.enums.PaymentType;
 
 import lombok.Data;
@@ -8,7 +10,10 @@ import lombok.Data;
 public class InvoiceRequest {
 
 	private String productId;
-	private String count;
+	private int count;
 	private PaymentType type;
+	private String ccNo;
+	private LocalDate date;
+	private int cvc;
 
 }
