@@ -2,11 +2,11 @@ package com.bilisimio.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bilisimio.exception.VendingMachineException;
 import com.bilisimio.input.InvoiceRequest;
 import com.bilisimio.output.InvoiceResponse;
 import com.bilisimio.output.ServiceResponse;
@@ -19,8 +19,7 @@ public class InvoiceController {
 	private InvoiceService invoiceService;
 
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ServiceResponse<InvoiceResponse>> payInvoice(
-			@RequestBody(required = true) InvoiceRequest invoiceRequest) {
+	public ServiceResponse<InvoiceResponse> payInvoice(@RequestBody(required = true) InvoiceRequest invoiceRequest) throws VendingMachineException {
 		return invoiceService.payInvoice(invoiceRequest);
 	}
 
