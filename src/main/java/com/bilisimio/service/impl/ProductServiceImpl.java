@@ -39,4 +39,10 @@ public class ProductServiceImpl extends ProductBaseService implements ProductSer
 		return ResponseBuilder.success(new ProductResponse(prepareProductList(filteredList)), HttpStatus.OK);
 	}
 
+	@Override
+	public double getPriceById(String productId) {
+		return productList.stream()
+				.filter(product -> product.getId().equals(Integer.valueOf(productId))).collect(Collectors.toList()).get(0).getPrice();
+	}
+
 }

@@ -9,4 +9,6 @@ public interface ProductService {
 
 	ServiceResponse<ProductResponse> getProduct(String productId);
 
+	double getPriceById(String productId);
+
 }
