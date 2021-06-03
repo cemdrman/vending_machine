@@ -41,8 +41,14 @@ public class ProductServiceImpl extends ProductBaseService implements ProductSer
 
 	@Override
 	public double getPriceById(String productId) {
-		return productList.stream()
-				.filter(product -> product.getId().equals(Integer.valueOf(productId))).collect(Collectors.toList()).get(0).getPrice();
+		return productList.stream().filter(product -> product.getId().equals(Integer.valueOf(productId)))
+				.collect(Collectors.toList()).get(0).getPrice();
+	}
+
+	@Override
+	public String getProductNameByName(String productId) {
+		return productList.stream().filter(product -> product.getId().equals(Integer.valueOf(productId)))
+				.collect(Collectors.toList()).get(0).getName();
 	}
 
 }

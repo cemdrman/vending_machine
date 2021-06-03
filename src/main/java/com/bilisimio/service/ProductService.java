@@ -11,4 +11,6 @@ public interface ProductService {
 
 	double getPriceById(String productId);
 
+	String getProductNameByName(String productId);
+
 }
