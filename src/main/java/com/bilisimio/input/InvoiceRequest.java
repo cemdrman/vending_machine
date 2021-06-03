@@ -15,5 +15,6 @@ public class InvoiceRequest {
 	private String ccNo;
 	private LocalDate date;
 	private int cvc;
+	private int cash;
 
 }
