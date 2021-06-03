@@ -10,9 +10,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.bilisimio.output.ProductResponse;
-import com.bilisimio.output.ServiceResponse;
-import com.bilisimio.service.impl.ProductServiceImpl;
+import com.vendingmachine.output.ProductResponse;
+import com.vendingmachine.output.ServiceResponse;
+import com.vendingmachine.service.impl.ProductServiceImpl;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 public class ProductServiceTest {
