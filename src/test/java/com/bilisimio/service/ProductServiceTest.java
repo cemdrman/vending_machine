@@ -8,7 +8,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.bilisimio.output.ProductResponse;
@@ -27,9 +26,9 @@ public class ProductServiceTest {
 	@Test
 	public void getAllProductsTest() {
 
-		ResponseEntity<ServiceResponse<ProductResponse>> products = productService.getAllProducts();
+		ServiceResponse<ProductResponse> products = productService.getAllProducts();
 
-		assertEquals(HttpStatus.OK, products.getStatusCode());
+		assertEquals(HttpStatus.OK, products.getHeader().getStatusCode());
 
 	}
 }

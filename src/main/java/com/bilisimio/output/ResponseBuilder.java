@@ -1,7 +1,6 @@
 package com.bilisimio.output;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
 public class ResponseBuilder {
 
@@ -9,16 +8,14 @@ public class ResponseBuilder {
 
 	}
 
-	public static <T> ResponseEntity<ServiceResponse<T>> success(T data, HttpStatus status) {
+	public static <T> ServiceResponse<T> success(T data, HttpStatus status) {
 		ServiceResponseHeader header = new ServiceResponseHeader(status, null);
-		ServiceResponse<T> response = new ServiceResponse<>(header, data);
-		return new ResponseEntity<>(response, status);
+		return new ServiceResponse<>(header, data);
 	}
 
-	public static <T> ResponseEntity<ServiceResponse<T>> failure(String errorMessage, HttpStatus status) {
+	public static <T> ServiceResponse<T> failure(String errorMessage, HttpStatus status) {
 		ServiceResponseHeader header = new ServiceResponseHeader(status, errorMessage);
-		ServiceResponse<T> response = new ServiceResponse<>(header, null);
-		return new ResponseEntity<>(response, status);
+		return new ServiceResponse<>(header, null);
 	}
 
 }

@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
 import com.bilisimio.model.Product;
 import com.bilisimio.output.ProductResponse;
@@ -29,12 +28,12 @@ public class ProductServiceImpl extends ProductBaseService implements ProductSer
 	}
 
 	@Override
-	public ResponseEntity<ServiceResponse<ProductResponse>> getAllProducts() {
+	public ServiceResponse<ProductResponse> getAllProducts() {
 		return ResponseBuilder.success(new ProductResponse(prepareProductList(productList)), HttpStatus.OK);
 	}
 
 	@Override
-	public ResponseEntity<ServiceResponse<ProductResponse>> getProduct(String productId) {
+	public ServiceResponse<ProductResponse> getProduct(String productId) {
 		List<Product> filteredList = productList.stream()
 				.filter(product -> product.getId().equals(Integer.valueOf(productId))).collect(Collectors.toList());
 		return ResponseBuilder.success(new ProductResponse(prepareProductList(filteredList)), HttpStatus.OK);

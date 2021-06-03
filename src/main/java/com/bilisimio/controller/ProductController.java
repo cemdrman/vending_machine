@@ -1,7 +1,6 @@
 package com.bilisimio.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,12 +16,12 @@ public class ProductController {
 	private ProductService productService;
 
 	@GetMapping("/products")
-	public ResponseEntity<ServiceResponse<ProductResponse>> getAllProducts() {
+	public ServiceResponse<ProductResponse> getAllProducts() {
 		return productService.getAllProducts();
 	}
 
 	@GetMapping("/products/{productId}")
-	public ResponseEntity<ServiceResponse<ProductResponse>> getProducts(@PathVariable String productId) {
+	public ServiceResponse<ProductResponse> getProducts(@PathVariable String productId) {
 		return productService.getProduct(productId);
 	}
 
